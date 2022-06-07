@@ -1,9 +1,7 @@
 package com.map;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Question {
@@ -11,17 +9,17 @@ public class Question {
     @Column(name = "question_id")
     private int questionId;
     private String question;
-    @OneToOne
-    private Answer answer;
+    @OneToMany(mappedBy = "question")
+    private List<Answer> answers;
 
     public Question() {
         super();
     }
 
-    public Question(int questionId, String question, Answer answer) {
+    public Question(int questionId, String question, List<Answer> answers) {
         this.questionId = questionId;
         this.question = question;
-        this.answer = answer;
+        this.answers = answers;
     }
 
     public int getQuestionId() {
@@ -40,11 +38,11 @@ public class Question {
         this.question = question;
     }
 
-    public Answer getAnswer() {
-        return answer;
+    public List<Answer> getAnswers() {
+        return answers;
     }
 
-    public void setAnswer(Answer answer) {
-        this.answer = answer;
+    public void setAnswers(List<Answer> answers) {
+        this.answers = answers;
     }
 }
