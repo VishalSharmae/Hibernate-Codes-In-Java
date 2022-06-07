@@ -11,7 +11,9 @@ public class Student {
     private int studentId;
     private String name;
     private String city;
-    private LocalDateTime created_at;
+
+    private Certificate certificate;
+    private LocalDateTime created_at = java.time.LocalDateTime.now();
 
     public Student(int studentId, String name, String city) {
         this.studentId = studentId;
@@ -51,8 +53,12 @@ public class Student {
         return created_at;
     }
 
-    public void setCreated_at(LocalDateTime created_at) {
-        this.created_at = created_at;
+    public Certificate getCertificate() {
+        return certificate;
+    }
+
+    public void setCertificate(Certificate certificate) {
+        this.certificate = certificate;
     }
 
     @Override

@@ -31,9 +31,6 @@ public class Main {
         student.setName("Kartik");
         student.setCity("Delhi");
 
-        //get current date and time
-        student.setCreated_at(java.time.LocalDateTime.now());
-
         System.out.println(student);
 
         //creating object of StudentAddress Class
